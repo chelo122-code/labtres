@@ -1,0 +1,57 @@
+#include "main.h"
+#include "usb_device.h"
+#include "usbd_cdc_if.h"
+
+ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
+
+TIM_HandleTypeDef htim3;
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_TIM3_Init(void);
+
+uint32_t ReadsADC1[1];
+uint8_t datos [50] ={0};
+int cont=0; 
+int f=0;
+ 
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*htim){
+	if(htim->Instance==htim3.Instance){	
+		if(cont>49){
+			CDC_Transmit_FS(datos, sizeof(datos));
+			cont=0;
+		}
+		datos[cont] = (int)(f);
+		cont++;
+	}
+}
+
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+
+
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_ADC1_Init();
+  MX_TIM3_Init();
+  MX_USB_DEVICE_Init();
+
+	
+	HAL_TIM_Base_Start_IT(&htim3);
+	HAL_ADC_Start_DMA(&hadc1,ReadsADC1,1);
+	int ucp1,ucp2,ang=0,ango=0;
+  int val=0;
+
+  while (1)
+  {
+	val = ReadsADC1[0]*3.3/4095;
+		f = val;
+  }
+
+}
