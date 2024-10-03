@@ -5,7 +5,7 @@ Tiene forma de campana y principalmente se usa para minimizar efectos no deseado
 
 # Uso general para utilizar el código
 
-El código fue tomado a través de un AD620 por medio de una stm hacia una interfaz de Python que recopila los datos y los transforma a archivo tipo txt, de forma que este se descarga y se pone dentro del colab o se carga el archivo en la interfaz que utilices para que analice los datos ya tomados de antes. Los músculos analizados fueron el grupo flexor superficial de los dedos y el tierra se colocó en el codo, el movimiento realizado para obtener los datos fue tomar una pelota antiestrés para apretarla hasta fatigar el músculo.
+El código fue tomado a través de un AD8232 por medio de una stm hacia una interfaz de Python que recopila los datos y los transforma a archivo tipo txt, de forma que este se descarga y se pone dentro del colab o se carga el archivo en la interfaz que utilices para que analice los datos ya tomados de antes. Los músculos analizados fueron el grupo flexor superficial de los dedos y el tierra se colocó en el codo, el movimiento realizado para obtener los datos fue tomar una pelota antiestrés para apretarla hasta fatigar el músculo.
 
 
 En Python, al aplicar esta ventana de hanning a nuestros datos, los puntos extremos de la señal se atenúan suavemente a cero, lo que reduce los efectos de las discontinuidades.
@@ -17,3 +17,9 @@ La respuesta rápida del músculo está asociada a fibras de contracción rápid
 Por otro lado, la respuesta lenta está relacionada con fibras de contracción lenta (fibras tipo I). Estas fibras son más lentas para contraerse, pero tienen una gran resistencia a la fatiga. Son ideales para actividades de resistencia, como correr largas distancias, nadar o caminar. Utilizan energía de manera aeróbica, es decir, con oxígeno, lo que les permite trabajar durante mucho tiempo sin agotarse.
 
 En este caso, las fibras que se están utilizando más con él movimiento realizado por la persona es con las fibras lentas porque el movimiento de sostener la pelota es repetitivo y sostenido.
+
+# Picos del ventaneo para el analisis.
+![image](https://github.com/user-attachments/assets/34774bae-ee89-47eb-8ed3-6f2afada7f2d)
+
+# Hanning aplicado respecto a la señal original
+![image](https://github.com/user-attachments/assets/4d483c1e-5951-4b83-a403-399ba23a89bd)
